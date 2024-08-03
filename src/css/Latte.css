@@ -1,0 +1,43 @@
+* {
+  font-family: "CaskaydiaCove Nerd Font";
+  font-size: 16px;
+  color: #4c4f69;
+   }
+#mainWindow {
+  background-color: #eff1f5;
+}
+#sideBar #header,#sideBar #content,#sideBar #footer {
+background-color: #dce0e8;
+}
+#sideBar #header QPushButton, #sideBar #content QPushButton{
+  border: none;
+  border-radius: 8px;
+  background-color: #ccd0da;
+}
+#sideBar #header QPushButton:hover, #sideBar #content QPushButton:hover,#sideBar #footer QPushButton:hover {
+  background-color: #bcc0cc;
+}
+#sideBar #header{
+  border-bottom-right-radius: 8px;
+}
+#sideBar #content {
+  border-top-right-radius: 8px;
+}
+#sideBar #content QTreeWidget {
+  background-color: #dce0e8;
+}
+#sideBar #footer QPushButton {
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+#centralWidget, #centralWidget #test {
+  background-color: #dce0e8;
+  border: none;
+}
+#centralWidget QTabWidget {
+  background-color: #dce0e8;
+  border: none;
+}
+
