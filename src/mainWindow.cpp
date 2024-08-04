@@ -10,7 +10,6 @@
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
   SideBar *sideBar = new SideBar(this);
   CentralWidget *centralWidget = new CentralWidget(this);
-
   QHBoxLayout *mainWindowLayout = new QHBoxLayout(this);
   mainWindowLayout->setContentsMargins(0, 0, 0, 0);
   mainWindowLayout->setSpacing(1);

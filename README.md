@@ -1,2 +1,2 @@
 # Kaizen
-Kaizen - Todo App
+A Todo App
