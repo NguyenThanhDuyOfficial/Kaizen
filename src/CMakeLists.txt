@@ -4,7 +4,9 @@ qt_add_executable(Kaizen
     mainWindow.cpp
     widgets/sideBar.cpp
     widgets/centralWidget.cpp
+    widgets/tabWidget.cpp
     utils/styleManager.cpp
+    utils/resizeFilter.cpp
 )
 
 target_link_libraries(Kaizen PRIVATE Qt6::Widgets Qt6::Svg)

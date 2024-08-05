@@ -27,7 +27,7 @@ void StyleManager::createStyleSheet(QString templatePath,
                    .arg(paletteList->at(1))
                    .arg(paletteList->at(2))
                    .arg(paletteList->at(3))
-                   /*.arg(paletteList->at(4))*/
+                   .arg(paletteList->at(4))
                    /*.arg(paletteList->at(5))*/
                    /*.arg(paletteList->at(6))*/
                    /*.arg(paletteList->at(7))*/

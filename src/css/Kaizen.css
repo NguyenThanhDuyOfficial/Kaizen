@@ -2,45 +2,50 @@
   font-family: "CaskaydiaCove Nerd Font";
   font-size: 16px;
   color: %10;
-   }
+}
 #mainWindow {
   background-color: %0;
 }
-#sideBar {
-  background-color: %1;
+#sideBar #fixedSideBar, #sideBar #flexibleWidget *{
+  background-color: %2;
 }
-/*#sideBar #header,#sideBar #content,#sideBar #footer {*/
-/*background-color: %1;*/
-/*}*/
-/*#sideBar #header QPushButton, #sideBar #content QPushButton{*/
-/*  border: none;*/
-/*  border-radius: 8px;*/
-/*  background-color: %2;*/
-/*}*/
-/*#sideBar #header QPushButton:hover, #sideBar #content QPushButton:hover,#sideBar #footer QPushButton:hover {*/
-/*  background-color: %3;*/
-/*}*/
-/*#sideBar #header{*/
-/*  border-bottom-right-radius: 8px;*/
-/*}*/
-/*#sideBar #content {*/
-/*  border-top-right-radius: 8px;*/
-/*}*/
-/*#sideBar #content QTreeWidget {*/
-/*  background-color: %1;*/
-/*}*/
-/*#sideBar #footer QPushButton {*/
-/*  border: none;*/
-/*  border-radius: 8px;*/
-/*  font-size: 14px;*/
-/*}*/
+#sideBar #fixedSideBar QPushButton, #sideBar #flexibleWidget #header QPushButton, #sideBar #flexibleWidget #footer QPushButton {
+  border: none;
+  border-radius: 8px;
+  padding: 4px;
+}
+#sideBar #fixedSideBar QPushButton:hover, #sideBar #flexibleWidget #header QPushButton:hover, #sideBar #flexibleWidget #footer QPushButton:hover {
+  background-color: %3;
+}
+#sideBar #flexibleWidget #content QPushButton{
+  border: none;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: %3;
+}
+#sideBar #flexibleWidget #content QPushButton:hover {
+  background-color: %4;
+}
 
-#centralWidget, #centralWidget #test {
-  background-color: %1;
+#centralWidget {
+  background-color: %0;
+}
+#centralWidget QTabWidget QWidget {
+  background-color: %2;
+}
+#centralWidget QTabWidget::pane {
   border: none;
 }
-#centralWidget QTabWidget {
-  background-color: %1;
-  border: none;
+#centralWidget QTabWidget::tab-bar {
+  left: 16px;
 }
+#centralWidget QTabBar::tab {
+  padding: 0 0 2px 0 ; 
+  background-color: %1;
+}
+#centralWidget QTabBar::tab:selected, #centralWidget QTabBar::tab:hover {
+  background-color: %2;
+}
+
+
 
