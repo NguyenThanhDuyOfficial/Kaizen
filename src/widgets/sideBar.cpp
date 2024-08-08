@@ -1,6 +1,7 @@
 #include <QFile>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QListWidget>
 #include <QPainter>
 #include <QPushButton>
 #include <QTreeWidget>
@@ -9,23 +10,14 @@
 #include <QWidget>
 
 #include <QDebug>
-#include <qboxlayout.h>
 #include <qcontainerfwd.h>
-#include <qcoreevent.h>
-#include <qdebug.h>
-#include <qgridlayout.h>
-#include <qlogging.h>
-#include <qnamespace.h>
-#include <qobject.h>
-#include <qpalette.h>
 #include <qpushbutton.h>
-#include <qwidget.h>
+#include <qtreewidget.h>
 
 #include "../utils/styleManager.hpp"
 #include "sideBar.hpp"
 
 SideBar::SideBar(QWidget *parent) : QWidget(parent) {
-
   QStringList *paletteList = StyleManager::getPalette();
 
   QWidget *fixedSideBar = new QWidget(this);
@@ -66,13 +58,30 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
   headerLayout->addStretch();
   header->setLayout(headerLayout);
   header->setObjectName("header");
+
   QWidget *content = new QWidget(flexibleSideBar);
   QPushButton *addTaskButton = new QPushButton("Add Task", content);
   QPushButton *createProjectButton = new QPushButton("Create Project", content);
-  /*QTreeWidget *listTree = new QTreeWidget(content);*/
-  /*QPushButton *testButton = new QPushButton("Do Right Now", content);*/
-  /*QTreeWidgetItem *item = new QTreeWidgetItem(listTree);*/
-  /*listTree->setItemWidget(item, 1, testButton);*/
+  QListWidget *listWidget = new QListWidget(content);
+  listWidget->setSpacing(8);
+  QStringList locationList = QStringList(
+      QStringList() << "Todo" << "Do Right Now" << "Next Action" << "Calendar"
+                    << "Project" << "Ticker" << "Reference" << "Wainting For"
+                    << "Someday/Maybe");
+  qDebug() << locationList.count();
+  for (int i = 0; i < locationList.count(); i++) {
+    QPushButton *button =
+        new QPushButton(locationList.at(i) + " List", listWidget);
+    QListWidgetItem *item = new QListWidgetItem(listWidget);
+    connect(button, &QPushButton::clicked, this, [button]() {
+      QString remove = " List";
+      qDebug() << button->text().remove(remove);
+    });
+    item->setSizeHint(QSize(button->width(), button->height() + 8));
+
+    listWidget->setItemWidget(item, button);
+  }
+
   QGridLayout *contentLayout = new QGridLayout(content);
   contentLayout->setContentsMargins(20, 20, 20, 0);
   contentLayout->setRowStretch(0, 2);
@@ -83,9 +92,10 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
   contentLayout->setVerticalSpacing(10);
   contentLayout->addWidget(addTaskButton, 0, 0);
   contentLayout->addWidget(createProjectButton, 0, 1);
-  /*contentLayout->addWidget(listTree, 1, 0, 1, 2);*/
+  contentLayout->addWidget(listWidget, 1, 0, 1, 2);
   content->setLayout(contentLayout);
   content->setObjectName("content");
+
   QWidget *footer = new QWidget(flexibleSideBar);
   QString userName = "Nguyen Thanh Duy";
   QPushButton *userButton = new QPushButton(userName, footer);
@@ -107,6 +117,7 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
   footerLayout->addWidget(settingButton, 1);
   footer->setLayout(footerLayout);
   footer->setObjectName("footer");
+
   QVBoxLayout *flexibleLayout = new QVBoxLayout(flexibleSideBar);
   flexibleLayout->setContentsMargins(0, 0, 0, 0);
   flexibleLayout->setSpacing(0);
@@ -116,6 +127,7 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
   flexibleLayout->addWidget(footer, 1);
   flexibleSideBar->setLayout(flexibleLayout);
   flexibleSideBar->setObjectName("flexibleWidget");
+
   QHBoxLayout *sideBarLayout = new QHBoxLayout(this);
   sideBarLayout->setContentsMargins(0, 0, 0, 0);
   sideBarLayout->setSpacing(0);

@@ -1,9 +1,8 @@
 #ifndef SIDEBAR_HPP
 #define SIDEBAR_HPP
 
-#include <QDockWidget>
+#include <QPushButton>
 #include <QWidget>
-#include <qdockwidget.h>
 
 class SideBar : public QWidget {
   Q_OBJECT

@@ -4,10 +4,13 @@
   color: %10;
 }
 #mainWindow {
+  background-color: %4;
+}
+#mainWindow {
   background-color: %0;
 }
 #sideBar #fixedSideBar, #sideBar #flexibleWidget *{
-  background-color: %2;
+  background-color: %1;
 }
 #sideBar #fixedSideBar QPushButton, #sideBar #flexibleWidget #header QPushButton, #sideBar #flexibleWidget #footer QPushButton {
   border: none;
@@ -15,35 +18,44 @@
   padding: 4px;
 }
 #sideBar #fixedSideBar QPushButton:hover, #sideBar #flexibleWidget #header QPushButton:hover, #sideBar #flexibleWidget #footer QPushButton:hover {
-  background-color: %3;
+  background-color: %2;
 }
 #sideBar #flexibleWidget #content QPushButton{
   border: none;
   border-radius: 8px;
-  padding: 4px;
-  background-color: %3;
+  padding: 8px;
+  background-color: %2;
 }
 #sideBar #flexibleWidget #content QPushButton:hover {
-  background-color: %4;
+  background-color: %3;
+}
+#sideBar #flexibleWidget #content QListWidget  {
+  border: none;
 }
 
 #centralWidget {
-  background-color: %0;
+  background-color: %1;
 }
 #centralWidget QTabWidget QWidget {
-  background-color: %2;
+  background-color: %1;
 }
 #centralWidget QTabWidget::pane {
-  border: none;
+  border-top: 2px solid %0;
 }
 #centralWidget QTabWidget::tab-bar {
   left: 16px;
 }
 #centralWidget QTabBar::tab {
-  padding: 0 0 2px 0 ; 
+  width: 72px;
+  padding: 0px 16px;
+  margin: 8px 0 8px 4px;
+  border-radius: 8px;
   background-color: %1;
 }
-#centralWidget QTabBar::tab:selected, #centralWidget QTabBar::tab:hover {
+#centralWidget QTabBar::tab:selected{
+  background-color: %2;
+}
+#centralWidget QTabBar::tab:hover {
   background-color: %2;
 }
 
