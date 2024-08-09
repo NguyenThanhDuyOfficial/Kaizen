@@ -4,12 +4,15 @@
 #include <QWidget>
 
 #include "mainWindow.hpp"
+#include "utils/dataManager.hpp"
 #include "utils/styleManager.hpp"
 
 int main(int argc, char *argv[]) {
   QApplication Kaizen(argc, argv);
-  MainWindow *mainWindow = new MainWindow(nullptr);
 
+  createDataBase();
+
+  MainWindow *mainWindow = new MainWindow(nullptr);
   mainWindow->show();
 
   QString themeName = "Latte";

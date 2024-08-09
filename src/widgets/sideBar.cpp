@@ -68,7 +68,6 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
       QStringList() << "Todo" << "Do Right Now" << "Next Action" << "Calendar"
                     << "Project" << "Ticker" << "Reference" << "Wainting For"
                     << "Someday/Maybe");
-  qDebug() << locationList.count();
   for (int i = 0; i < locationList.count(); i++) {
     QPushButton *button =
         new QPushButton(locationList.at(i) + " List", listWidget);
