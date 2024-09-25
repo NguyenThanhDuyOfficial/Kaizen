@@ -1,0 +1,26 @@
+* {
+  border: none;
+  border-radius: 8px;
+  background-color: #CCD0DA;
+  font-family: "Caskaydia Cove NerdFont";
+  font-size: 16px;
+  color: #4C4F69;
+}
+QMainWindow {
+  background-color: #EFF1F5;
+}
+
+QComboBox {
+}
+QPushButton {
+}
+QLineEdit {
+}
+
+QListWidget {
+  background-color: #EFF1F5;
+}
+#taskCard {
+  background-color: #CCD0DA;
+}
+
